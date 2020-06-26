@@ -1,4 +1,4 @@
-"""Pretty printers for XXX"""
+"""Pretty printer for XXX"""
 
 import gdb.printing
 
@@ -16,12 +16,13 @@ class XXXPrinter:
         return 'Python Iterator'
 
     def display_hint(self):
-        return 'array'|'map'|'string'
+        return 'array'/'map'/'string'
 
-def build_pretty_printers():
+def build_pretty_printer():
     """Builds the pretty printers for CII."""
     pp = gdb.printing.RegexpCollectionPrettyPrinter("CII")
     pp.add_printer('XXXPrinter', '^XXXPrinter$', XXXPrinter)
     return pp
 
-gdb.printing.register_pretty_printer(gdb.current_objfile(), build_pretty_printers)
+gdb.printing.register_pretty_printer(gdb.current_objfile(), build_pretty_printer)
+
